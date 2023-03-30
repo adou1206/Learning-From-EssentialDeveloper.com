@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 public protocol Router {
     associatedtype Question: Hashable
     associatedtype Answer
@@ -15,3 +16,5 @@ public protocol Router {
     
     func routeTo(result: Result<Question, Answer>)
 }
+
+//TODO: add deprecated message (Router protocol)
