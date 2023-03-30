@@ -7,6 +7,15 @@
 
 import Foundation
 
+public protocol QiuzDelegate {
+    associatedtype Question: Hashable
+    associatedtype Answer
+    
+    func handle(question: Question, answerCallback: @escaping (Answer) -> Void)
+    
+    func handle(result: Result<Question, Answer>)
+}
+
 @available(*, deprecated)
 public protocol Router {
     associatedtype Question: Hashable
@@ -17,4 +26,7 @@ public protocol Router {
     func routeTo(result: Result<Question, Answer>)
 }
 
-//TODO: add deprecated message (Router protocol)
+/*TODO:
+    1. add deprecated message (Router protocol)
+    2. remove Hashable constraint from Question and make the result type generic
+*/
